@@ -14,6 +14,7 @@
         <junit.version>4.11</junit.version>
         <guava.version>18.0</guava.version>
         <mockito.version>1.10.19</mockito.version>
+        <jsoup.version>1.8.1</jsoup.version>
     </properties>
 
     <dependencies>
@@ -21,6 +22,12 @@
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>${guava.version}</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+            <version>${jsoup.version}</version>
         </dependency>
 
         <!-- Test dependencies -->
