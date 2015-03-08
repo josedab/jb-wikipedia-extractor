@@ -17,4 +17,9 @@ public class WikipediaClientTest {
     public void whenExtractingInformation_givenNullRequest_thenThrowNPE() throws WikipediaException {
         wikipediaClient.extractInformation(null);
     }
+
+    @Test(expected = NullPointerException.class)
+    public void whenRequestingSidebarInformation_givenNullRequest_thenThrowNPE() throws WikipediaException {
+        wikipediaClient.extractSidebarInformation(null);
+    }
 }

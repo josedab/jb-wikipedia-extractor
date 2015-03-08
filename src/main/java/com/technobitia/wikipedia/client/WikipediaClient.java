@@ -2,6 +2,7 @@ package com.technobitia.wikipedia.client;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 import static com.technobitia.wikipedia.request.WikipediaRequest.SIDEBAR_REQUEST_TYPE;
+
 import java.io.IOException;
 
 import org.jsoup.Jsoup;
@@ -11,6 +12,7 @@ import com.google.common.collect.ImmutableMap;
 import com.technobitia.wikipedia.exceptions.WikipediaException;
 import com.technobitia.wikipedia.extractors.Extractor;
 import com.technobitia.wikipedia.extractors.SidebarExtractor;
+import com.technobitia.wikipedia.model.WikipediaInformation;
 import com.technobitia.wikipedia.request.WikipediaRequest;
 
 public class WikipediaClient {
@@ -40,5 +42,15 @@ public class WikipediaClient {
         }
         
         return result;
+    }
+    public WikipediaInformation extractSidebarInformation(WikipediaRequest request) throws WikipediaException {
+        checkNotNull(request);
+        
+        String sidebarHtml = extractInformation(request);
+        WikipediaInformation wikipediaInformation = new WikipediaInformation.Builder(request.getUrl())
+                                                                            .withPrettyHtml(sidebarHtml)
+                                                                            .build();
+        
+        return wikipediaInformation;
     }
 }
